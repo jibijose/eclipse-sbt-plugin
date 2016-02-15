@@ -52,4 +52,79 @@
       </actionSet>
    </extension>
    
+   <extension
+         point="org.eclipse.ui.commands">
+      <category
+            name="SBT"
+            id="org.scalastuff.esbt.commands.category">
+      </category>
+      <command
+            categoryId="org.scalastuff.esbt.commands.category"
+            defaultHandler="org.scalastuff.esbt.UpdateProjectConfigurationCommand"
+            id="org.scalastuff.esbt.commands.updateProjectConfiguration"
+            name="SBT Update Project Configuration">
+      </command>
+      <command
+            categoryId="org.scalastuff.esbt.commands.category"
+            defaultHandler="org.scalastuff.esbt.ExecuteSbtCommand"
+            id="org.scalastuff.esbt.commands.executeCommand"
+            name="SBT Command...">
+      </command>
+   </extension>
+   <extension
+         point="org.eclipse.ui.menus">
+      <menuContribution
+            locationURI="popup:org.eclipse.ui.popup.any">
+            <command
+                  commandId="org.scalastuff.esbt.commands.updateProjectConfiguration"
+                  mnemonic="U"
+                  label="SBT Update Project Configuration"
+                  id="org.scalastuff.esbt.menus.updateUpdateProjectConfiguration">
+                    <visibleWhen>
+               <with
+                     variable="activeMenuSelection">
+                  <iterate>
+                  <test
+                        property="org.scalastuff.esbt.isSbtProject" value="true">
+                  </test>
+                  </iterate>
+               </with>
+            </visibleWhen>
+            </command>
+            <command
+                  commandId="org.scalastuff.esbt.commands.executeCommand"
+                  mnemonic="S"
+                  label="SBT Command..."
+                  id="org.scalastuff.esbt.menus.executeCommand">
+                    <visibleWhen>
+               <with
+                     variable="activeMenuSelection">
+                  <iterate>
+                  <test
+                        property="org.scalastuff.esbt.isSbtProject" value="true">
+                  </test>
+                  </iterate>
+               </with>
+            </visibleWhen>
+            </command>
+       
+      </menuContribution>
+   </extension>
+   <extension
+         point="org.eclipse.ui.startup">
+      <startup
+            class="org.scalastuff.esbt.Initializer">
+      </startup>
+   </extension>
+   
+   <extension point="org.eclipse.core.expressions.propertyTesters">
+   <propertyTester
+         namespace="org.scalastuff.esbt"
+       id="org.scalastuff.esbt.EsbtPropertyTester"
+       properties="isSbtProject"
+       type="java.lang.Object"
+       class="org.scalastuff.esbt.EsbtPropertyTester">
+     </propertyTester>
+    </extension>
+   
 </plugin>

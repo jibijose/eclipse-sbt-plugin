@@ -3,7 +3,12 @@ Bundle-ManifestVersion: 2
 Bundle-Name: SBT-Eclipse Plugin
 Bundle-SymbolicName: sbt-eclipse-esbt;singleton:=true
 Bundle-Version: 1.0.0.qualifier
+Bundle-Vendor: JibiJose
 Require-Bundle: org.eclipse.core.runtime,
- org.eclipse.ui
-Bundle-RequiredExecutionEnvironment: J2SE-1.5
+ org.eclipse.ui,
+ org.eclipse.ui.console,
+ org.eclipse.core.resources,
+ org.eclipse.core.expressions
+Bundle-RequiredExecutionEnvironment: JavaSE-1.6
+Bundle-ActivationPolicy: lazy
 Export-Package: tycho.demo.itp01.actions;x-friends:="tycho.demo.itp01.tests"
