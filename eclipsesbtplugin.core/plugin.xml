@@ -1,6 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <?eclipse version="3.4"?>
 <plugin>
+
+	<extension point="org.eclipse.ui.keywords">
+      <keyword id="org.jibi.eclipse.sbt.core.sbt" label="%sbt.keyword.label"/>
+   </extension>
+   <extension point="org.eclipse.ui.preferencePages">
+      <page id="org.jibi.eclipse.sbt.core.preferences.SbtPreferencePage"
+            class="org.jibi.eclipse.sbt.ui.internal.preference.SbtPreferencePage"
+            name="%sbt.preferences.page.name">
+         <keywordReference id="org.jibi.eclipse.sbt.core.sbt"/>
+      </page>
+    </extension>
+   
    
    <extension
          point="org.eclipse.ui.commands">
