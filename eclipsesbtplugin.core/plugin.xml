@@ -3,15 +3,31 @@
 <plugin>
 
 	<extension point="org.eclipse.ui.keywords">
-      <keyword id="org.jibi.eclipse.sbt.core.sbt" label="%sbt.keyword.label"/>
+      <keyword id="org.jibi.eclipse.sbt.core.sbt" label="sbt"/>
    </extension>
    <extension point="org.eclipse.ui.preferencePages">
       <page id="org.jibi.eclipse.sbt.core.preferences.SbtPreferencePage"
             class="org.jibi.eclipse.sbt.ui.internal.preference.SbtPreferencePage"
-            name="%sbt.preferences.page.name">
+            name="Sbt">
          <keywordReference id="org.jibi.eclipse.sbt.core.sbt"/>
       </page>
     </extension>
+    
+    <extension 
+       point="org.eclipse.ui.preferencePages"> 
+      <page 
+         id="com.xyz.prefpage1" 
+         name="XYZ" 
+         class="com.xyz.prefpages.PrefPage1"> 
+         <keywordReference id="xyz.Keyword"/>
+      </page> 
+      <page 
+         id="com.xyz.prefpage2" 
+         name="Keyboard Settings" 
+         class="com.xyz.prefpages.PrefPage2" 
+         category="com.xyz.prefpage1"> 
+      </page> 
+   </extension> 
    
    
    <extension
