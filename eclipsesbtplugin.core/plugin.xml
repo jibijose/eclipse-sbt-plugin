@@ -1,73 +1,23 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <?eclipse version="3.4"?>
 <plugin>
-
-   <extension
-         id="application"
-         point="org.eclipse.core.runtime.applications">
-      <application>
-         <run
-               class="tycho.demo.itp.Application">
-         </run>
-      </application>
-   </extension>
-   <extension
-         point="org.eclipse.ui.perspectives">
-      <perspective
-            name="RCP Perspective"
-            class="tycho.demo.itp.Perspective"
-            id="tycho.demo.itp.perspective">
-      </perspective>
-   </extension>
-   <extension
-         id="product"
-         point="org.eclipse.core.runtime.products">
-      <product
-            application="tycho.demo.itp.application"
-            name="Tycho Implicit Build Target Platform Demo">
-      </product>
-   </extension>
-   <extension
-         point="org.eclipse.ui.actionSets">
-      <actionSet
-            id="tycho.demo.itp01.actionSet"
-            label="Sample Action Set"
-            visible="true">
-         <menu
-               id="sampleMenu"
-               label="Sample &amp;Menu">
-            <separator
-                  name="sampleGroup">
-            </separator>
-         </menu>
-         <action
-               class="tycho.demo.itp01.actions.SampleAction"
-               icon="icons/sample.gif"
-               id="tycho.demo.itp01.actions.SampleAction"
-               label="&amp;Sample Action"
-               menubarPath="sampleMenu/sampleGroup"
-               toolbarPath="sampleGroup"
-               tooltip="Hello, Eclipse world">
-         </action>
-      </actionSet>
-   </extension>
    
    <extension
          point="org.eclipse.ui.commands">
       <category
             name="SBT"
-            id="org.scalastuff.esbt.commands.category">
+            id="org.jibi.eclipse.sbt.commands.category">
       </category>
       <command
-            categoryId="org.scalastuff.esbt.commands.category"
-            defaultHandler="org.scalastuff.esbt.UpdateProjectConfigurationCommand"
-            id="org.scalastuff.esbt.commands.updateProjectConfiguration"
+            categoryId="org.jibi.eclipse.sbt.commands.category"
+            defaultHandler="org.jibi.eclipse.sbt.UpdateProjectConfigurationCommand"
+            id="org.jibi.eclipse.sbt.commands.updateProjectConfiguration"
             name="SBT Update Project Configuration">
       </command>
       <command
-            categoryId="org.scalastuff.esbt.commands.category"
-            defaultHandler="org.scalastuff.esbt.ExecuteSbtCommand"
-            id="org.scalastuff.esbt.commands.executeCommand"
+            categoryId="org.jibi.eclipse.sbt.commands.category"
+            defaultHandler="org.jibi.eclipse.sbt.ExecuteSbtCommand"
+            id="org.jibi.eclipse.sbt.commands.executeCommand"
             name="SBT Command...">
       </command>
    </extension>
@@ -76,32 +26,32 @@
       <menuContribution
             locationURI="popup:org.eclipse.ui.popup.any">
             <command
-                  commandId="org.scalastuff.esbt.commands.updateProjectConfiguration"
+                  commandId="org.jibi.eclipse.sbt.commands.updateProjectConfiguration"
                   mnemonic="U"
                   label="SBT Update Project Configuration"
-                  id="org.scalastuff.esbt.menus.updateUpdateProjectConfiguration">
+                  id="org.jibi.eclipse.sbt.menus.updateUpdateProjectConfiguration">
                     <visibleWhen>
                <with
                      variable="activeMenuSelection">
                   <iterate>
                   <test
-                        property="org.scalastuff.esbt.isSbtProject" value="true">
+                        property="org.jibi.eclipse.sbt.isSbtProject" value="true">
                   </test>
                   </iterate>
                </with>
             </visibleWhen>
             </command>
             <command
-                  commandId="org.scalastuff.esbt.commands.executeCommand"
+                  commandId="org.jibi.eclipse.sbt.commands.executeCommand"
                   mnemonic="S"
                   label="SBT Command..."
-                  id="org.scalastuff.esbt.menus.executeCommand">
+                  id="org.jibi.eclipse.sbt.menus.executeCommand">
                     <visibleWhen>
                <with
                      variable="activeMenuSelection">
                   <iterate>
                   <test
-                        property="org.scalastuff.esbt.isSbtProject" value="true">
+                        property="org.jibi.eclipse.sbt.isSbtProject" value="true">
                   </test>
                   </iterate>
                </with>
@@ -113,17 +63,17 @@
    <extension
          point="org.eclipse.ui.startup">
       <startup
-            class="org.scalastuff.esbt.Initializer">
+            class="org.jibi.eclipse.sbt.Initializer">
       </startup>
    </extension>
    
    <extension point="org.eclipse.core.expressions.propertyTesters">
    <propertyTester
-         namespace="org.scalastuff.esbt"
-       id="org.scalastuff.esbt.EsbtPropertyTester"
+         namespace="org.jibi.eclipse.sbt"
+       id="org.jibi.eclipse.sbt.EsbtPropertyTester"
        properties="isSbtProject"
        type="java.lang.Object"
-       class="org.scalastuff.esbt.EsbtPropertyTester">
+       class="org.jibi.eclipse.sbt.EsbtPropertyTester">
      </propertyTester>
     </extension>
    
