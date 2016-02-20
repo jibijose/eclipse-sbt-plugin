@@ -4,6 +4,7 @@ import static org.jibi.eclipse.sbt.Utils.copy;
 
 import java.io.BufferedReader;
 import java.io.File;
+import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
@@ -12,6 +13,9 @@ import java.io.InputStreamReader;
 import java.io.OutputStream;
 import java.util.ArrayList;
 import java.util.List;
+
+import org.eclipse.jface.dialogs.MessageDialog;
+import org.jibi.eclipse.sbt.ui.internal.preference.Activator;
 
 public class InvokeSbt {
 
@@ -127,16 +131,23 @@ public class InvokeSbt {
 		}
 	}
 
+	//	Copy Installed Jar to temp location and use that for SBT.jar
 	private File getLaunchJar() throws FileNotFoundException, IOException {
 		if (launchJar == null) {
-//			File launchJar = File.createTempFile("sbt-launch", ".jar");
-//			InputStream is = InvokeSbt.class.getResourceAsStream("sbt-launch.jar");
-//			if (is == null) {
-//				console.println("Coulnd't find sbt-launch.jar");
-//			}
-			File launchJar = new File("D:/sbt-launch.jar");
+			//	Get SBT installed jar
+			String sbtInstallDir = Activator.getDefault().getPreferenceStore().getString("SBTPATH");
+			File installedJar = new File(sbtInstallDir + "/bin/sbt-launch.jar");
+			if ( installedJar.exists() == false ) {
+				console.println("Please set SBT preferences");
+				throw new IOException("Unable to find SBT installation dir");
+			}
+			InputStream is = new FileInputStream(installedJar);
+			
+			//	Get SBT.jar temp location
+			File launchJar = File.createTempFile("sbt-launch", ".jar");
 			OutputStream os = new FileOutputStream(launchJar);
-//			copy(is, os);
+			
+			copy(is, os);
 			InvokeSbt.launchJar = launchJar;
 		}
 		return launchJar;

@@ -2,6 +2,7 @@ Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
 Bundle-Name: eclipsesbtplugin Core Plugin
 Bundle-SymbolicName: eclipsesbtplugin.core;singleton:=true
+Bundle-Activator: org.jibi.eclipse.sbt.ui.internal.preference.Activator
 Bundle-Version: 1.0.0.qualifier
 Bundle-Vendor: Jibi Jose
 Require-Bundle: org.eclipse.ui,
