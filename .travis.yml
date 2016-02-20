@@ -6,6 +6,10 @@ language: java
 jdk:
   - oraclejdk8
   
-install: mvn package -q -DskipTests=true
+install: mvn clean install -q -DskipTests=true
+
+cache:
+  directories:
+  - $HOME/.m2
 
 script: mvn test -q
