@@ -1,3 +1,8 @@
+OS X Build: (Travis CI) [![Build Status](https://travis-ci.org/jibijose/eclipse-sbt-plugin.png?branch=master)](https://travis-ci.org/jibijose/eclipse-sbt-plugin)
+
+Windows Build: (Appveyor) [![Build status](https://ci.appveyor.com/api/projects/status/6204kde3kcdgm480)](https://ci.appveyor.com/project/jibijose/eclipse-sbt-plugin)
+
+
 This project is built using Eclipse Tycho (https://www.eclipse.org/tycho/) and requires at least maven 3.0 (http://maven.apache.org/download.html) to be built via CLI. 
 Simply run :
 
