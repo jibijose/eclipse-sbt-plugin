@@ -11,6 +11,7 @@ Steps to install in eclipse.
 * Install sbteclipse https://github.com/typesafehub/sbteclipse  Now sbt eclipse should work from command prompt/shell
 
 This plugin hooks into eclipse and developer can run it from eclipse itself.
+https://raw.github.com/jibijose/updatesite/master
 
 * Install new software and with update site or newly build update.zip from this source code
 * Edit "Sbt" in preferences page.
