@@ -1,13 +1,20 @@
 This project is built using Eclipse Tycho (https://www.eclipse.org/tycho/) and requires at least maven 3.0 (http://maven.apache.org/download.html) to be built via CLI. 
 Simply run :
 
-    mvn install
+    mvn clean package
 
-The first run will take quite a while since maven will download all the required dependencies in order to build everything.
 
-In order to use the generated eclipse plugins in Eclipse, you will need m2e (https://www.eclipse.org/m2e) 
-and the m2eclipse-tycho plugin (https://github.com/tesla/m2eclipse-tycho/). Update sites to install these plugins : 
+Steps to install in eclipse.
 
-* m2e stable update site : http://download.eclipse.org/technology/m2e/releases/
-* m2eclipse-tycho dev update site : http://repo1.maven.org/maven2/.m2e/connectors/m2eclipse-tycho/0.7.0/N/0.7.0.201309291400/
+* Install sbt in windows/unix
+* Install scala-ide plugin in eclipse
+* Install sbteclipse https://github.com/typesafehub/sbteclipse  Now sbt eclipse should work from command prompt/shell
+
+This plugin hooks into eclipse and developer can run it from eclipse itself.
+
+* Install new software and with update site or newly build update.zip from this source code
+* Edit "Sbt" in preferences page.
+
+Now "sbt eclipse" is invoked automatically to listening to any changes in conf files and will refresh eclipse.
+Also you can run any sbt commands from eclipse.
 
