@@ -19,3 +19,9 @@ https://raw.github.com/jibijose/updatesite/master
 Now "sbt eclipse" is invoked automatically to listening to any changes in conf files and will refresh eclipse.
 Also you can run any sbt commands from eclipse.
 
+
+Reference
+* http://help.eclipse.org/mars/index.jsp?topic=%2Forg.eclipse.platform.doc.isv%2Freference%2Fextension-points%2Forg_eclipse_ui_preferencePages.html
+* https://github.com/vogellacompany/vogella.git
+* https://github.com/eclipse/m2e-core.git
+* https://github.com/scalastuff/esbt
